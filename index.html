@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NexFlow AI — Automate Everything</title>
+  <meta name="description" content="NexFlow AI turns your business workflows into intelligent, self-running systems — no code, no complexity, no wasted hours." />
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="logo">Nex<span>Flow</span></div>
+    <button class="nav-pill" onclick="scrollToWaitlist()">Join waitlist</button>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-grid"></div>
+
+    <div class="badge">
+      <div class="dot"></div>
+      Now accepting early access
+    </div>
+
+    <h1>Automate everything.<br><em>Think</em> bigger.</h1>
+
+    <p class="subtitle">
+      NexFlow AI turns your business workflows into intelligent, self-running systems —
+      no code, no complexity, no wasted hours.
+    </p>
+
+    <div class="waitlist-box" id="waitlist">
+      <h2>Get early access</h2>
+      <p>Be first in line. Limited spots available for our beta launch.</p>
+      <div class="input-row">
+        <input type="email" id="emailInput" placeholder="you@company.com" />
+        <button class="cta-btn" id="joinBtn" onclick="joinWaitlist()">Join now</button>
+      </div>
+      <div class="success-msg" id="successMsg">
+        <div class="success-icon">✓</div>
+        <span>You're on the list! We'll be in touch soon.</span>
+      </div>
+      <div class="counter" id="counter"><strong>214</strong> people already waiting</div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="features">
+    <div class="features-header">
+      <div>
+        <div class="section-label">What we do</div>
+        <div class="features-title">The operating system for your business</div>
+      </div>
+      <p class="features-desc">
+        NexFlow connects your tools, learns your processes, and executes workflows
+        autonomously — so your team focuses on what actually matters.
+      </p>
+    </div>
+
+    <div class="feature-grid">
+      <div class="feature-card">
+        <div class="feature-icon">⚡</div>
+        <h3>Instant automation</h3>
+        <p>Describe your workflow in plain English. NexFlow builds, tests, and deploys it in minutes.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🔗</div>
+        <h3>Universal integrations</h3>
+        <p>Connect to 500+ apps out of the box. Gmail, Slack, Salesforce, Notion — everything talks to everything.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🧠</div>
+        <h3>AI that learns</h3>
+        <p>Our agents adapt to your business over time, catching exceptions and improving with every run.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📊</div>
+        <h3>Live dashboards</h3>
+        <p>See every workflow in real time. Spot bottlenecks, measure ROI, and optimize on the fly.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🔒</div>
+        <h3>Enterprise security</h3>
+        <p>SOC 2 Type II, end-to-end encryption, and role-based access control built in from day one.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🚀</div>
+        <h3>Scales with you</h3>
+        <p>From solo founder to 10,000-person org. NexFlow handles millions of tasks without breaking a sweat.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="how">
+    <div class="section-label">How it works</div>
+    <h2 class="how-title">Up and running in three steps</h2>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <div class="step-content">
+          <h3>Connect your tools</h3>
+          <p>Link your existing apps in a single click. NexFlow reads your data and maps your current processes automatically.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <div class="step-content">
+          <h3>Describe your workflow</h3>
+          <p>Type what you want to automate — or pick from our library of 100+ templates built for real business teams.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <div class="step-content">
+          <h3>Let it run</h3>
+          <p>NexFlow executes, monitors, and self-corrects your workflows 24/7. You get notified only when you need to.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="logo">Nex<span>Flow</span></div>
+    <p>© 2026 NexFlow AI Inc. All rights reserved.</p>
+    <p class="footer-email">hello@nexflow.ai</p>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
