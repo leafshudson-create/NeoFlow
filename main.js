@@ -2,6 +2,10 @@
    NexFlow AI — main.js
    ===================== */
 
+// ⚠️ Replace this with your actual Formspree form ID
+// Get it from formspree.io after creating a form
+const FORMSPREE_URL = 'https://formspree.io/f/mojybdjz';
+
 let waitlistCount = 214;
 
 /**
@@ -12,10 +16,9 @@ function scrollToWaitlist() {
 }
 
 /**
- * Handles waitlist form submission.
- * Replace the TODO below with a real API call (e.g. Mailchimp, Airtable, etc.)
+ * Handles waitlist form submission and sends email to Formspree.
  */
-function joinWaitlist() {
+async function joinWaitlist() {
   const input   = document.getElementById('emailInput');
   const joinBtn = document.getElementById('joinBtn');
   const email   = input.value.trim();
@@ -27,28 +30,39 @@ function joinWaitlist() {
     return;
   }
 
-  // TODO: Replace this block with your real backend / email service call.
-  // Example using Airtable REST API:
-  //
-  // fetch('https://api.airtable.com/v0/YOUR_BASE_ID/Waitlist', {
-  //   method: 'POST',
-  //   headers: {
-  //     'Authorization': 'Bearer YOUR_API_KEY',
-  //     'Content-Type': 'application/json'
-  //   },
-  //   body: JSON.stringify({ fields: { Email: email } })
-  // });
-
-  // Update UI
-  waitlistCount++;
-  document.getElementById('counter').innerHTML =
-    '<strong>' + waitlistCount + '</strong> people already waiting';
-
-  document.getElementById('successMsg').style.display = 'flex';
-
-  input.value    = '';
-  input.disabled = true;
+  // Disable button and show loading state
   joinBtn.disabled = true;
+  joinBtn.textContent = 'Sending...';
+
+  try {
+    const response = await fetch(FORMSPREE_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: email })
+    });
+
+    if (response.ok) {
+      // Success — update the UI
+      waitlistCount++;
+      document.getElementById('counter').innerHTML =
+        '<strong>' + waitlistCount + '</strong> people already waiting';
+
+      document.getElementById('successMsg').style.display = 'flex';
+      input.value    = '';
+      input.disabled = true;
+      joinBtn.textContent = 'Joined!';
+    } else {
+      throw new Error('Server error');
+    }
+
+  } catch (error) {
+    // Something went wrong — show error and re-enable button
+    joinBtn.disabled = false;
+    joinBtn.textContent = 'Join now';
+    input.style.borderColor = 'rgba(220, 80, 80, 0.5)';
+    setTimeout(() => { input.style.borderColor = ''; }, 2000);
+    alert('Something went wrong. Please try again!');
+  }
 }
 
 // Allow pressing Enter inside the email field
